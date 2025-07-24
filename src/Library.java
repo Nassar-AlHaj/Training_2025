@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.io.*;
 
 public class Library {
     private ArrayList<Book> books = new ArrayList<>();
@@ -53,6 +54,36 @@ public class Library {
             }
         }
         return false;
+    }
+
+
+    public void loadBooksFromFile(String filename) {
+        books.clear();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 4) {
+                    int id = Integer.parseInt(parts[0]);
+                    String title = parts[1];
+                    String author = parts[2];
+                    int year = Integer.parseInt(parts[3]);
+                    books.add(new Book(id, title, author, year));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("⚠️ File not found. Starting with an empty library.");
+        }
+    }
+    public void saveBooksToFile(String filename) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+            for (Book book : books) {
+                writer.println(book.getId() + "," + book.getTitle() + "," +
+                        book.getAuthor() + "," + book.getYear());
+            }
+        } catch (IOException e) {
+            System.out.println("❌ Error saving books: " + e.getMessage());
+        }
     }
 
 }
