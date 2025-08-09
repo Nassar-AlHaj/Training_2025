@@ -1,0 +1,289 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+/* Container for centering content */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Header styles */
+header {
+  background: white;
+  padding: 20px 30px;
+  border-bottom: 2px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+nav a:hover {
+  color: #333;
+  background: #f0f0f0;
+}
+
+/* Special styling for + Add button */
+nav a[href*="new_article"]:before {
+  content: "+ ";
+  font-weight: bold;
+}
+
+/* Main content area */
+main {
+  padding: 30px;
+}
+
+/* Article lists */
+.article-list, 
+.admin-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article-list li, 
+.admin-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.article-list li:last-child,
+.admin-list li:last-child {
+  border-bottom: none;
+}
+
+/* Article links */
+.article-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 18px;
+  flex: 1;
+}
+
+.article-link:hover {
+  color: #007bff;
+}
+
+/* Date styling */
+.date {
+  color: #999;
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 15px;
+}
+
+/* Admin list specific styles */
+.admin-list li {
+  padding: 12px 0;
+}
+
+.admin-list .title {
+  flex: 1;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.admin-list .date {
+  margin: 0 15px;
+  font-size: 13px;
+}
+
+/* Edit and Delete links */
+.edit, .delete {
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 8px;
+  transition: all 0.2s;
+}
+
+.edit {
+  color: #28a745;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.edit:hover {
+  background: #e8f5e8;
+  border-color: #28a745;
+}
+
+.delete {
+  color: #dc3545;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.delete:hover {
+  background: #f5e8e8;
+  border-color: #dc3545;
+}
+
+/* Article content page */
+.content {
+  margin-top: 20px;
+  line-height: 1.8;
+  font-size: 16px;
+  color: #444;
+  white-space: pre-wrap;
+}
+
+.content p {
+  margin-bottom: 15px;
+}
+
+/* Form styles */
+.form-wrap {
+  max-width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-wrap h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 24px;
+}
+
+/* Form inputs */
+input[type="text"],
+input[type="date"],
+input[name="username"],
+input[name="password"],
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+/* Buttons */
+button {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+button:hover {
+  background: #555;
+}
+
+/* Update and Publish buttons in forms */
+form button {
+  margin-top: 10px;
+}
+
+/* Empty state */
+.article-list li:only-child,
+.admin-list li:only-child {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 40px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  nav {
+    justify-content: center;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .article-list li,
+  .admin-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .date {
+    margin: 0;
+  }
+  
+  .edit, .delete {
+    margin: 5px 5px 0 0;
+  }
+}

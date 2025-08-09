@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>New Article</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="form-wrap">
+    <h1>New Article</h1>
+    <form method="POST">
+      <input name="title" placeholder="Title" required>
+      <textarea name="content" rows="10" placeholder="Content" required></textarea>
+      <input name="date" type="date" required>
+      <button type="submit">Publish</button>
+    </form>
+    <p><a href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a></p>
+  </main>
+</body>
+</html>

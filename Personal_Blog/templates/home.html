@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Blog Home</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Blog</h1>
+    <nav><a href="{{ url_for('login') }}">Admin Login</a></nav>
+  </header>
+  <main>
+    <ul class="article-list">
+      {% for a in articles %}
+      <li>
+        <a class="article-link" href="{{ url_for('article_page', id=a.id) }}">{{ a.title }}</a>
+        <span class="date">{{ a.date }}</span>
+      </li>
+      {% endfor %}
+      {% if not articles %}
+      <li>No articles yet.</li>
+      {% endif %}
+    </ul>
+  </main>
+</body>
+</html>
